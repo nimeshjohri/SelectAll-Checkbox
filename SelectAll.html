@@ -1,0 +1,91 @@
+
+<!doctype html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<style>
+.names
+{
+position:absolute;
+top:33px;
+left:140px;
+width:90px;
+height:110px;
+
+}
+</style>
+<body>
+<input class="selectall" type="checkbox">Select All
+<ul>
+<li><input class="inp" value="TCS" id="inp1" type="checkbox">TCS</li>
+<li><input class="inp" value="Infosys" id="inp2" type="checkbox">Infosys</li>
+<li><input class="inp" value="Cognizant "id="inp3" type="checkbox">Cognizant</li>
+</ul>
+<div class="names">
+<ul id= "display"></ul>
+</div>
+</body>
+<script>
+
+$(document).ready(function(){
+function abc(){
+$("#display").html("");
+
+$(".inp:checked").each(function(){
+
+	var v="<li >" + $(this).val() + "</li>";
+	$("#display").append(v);
+	});
+
+}
+
+$(".selectall").click(function(){
+
+if($(".selectall").is(":checked"))
+{
+$(".inp").prop("checked",true);
+
+
+
+
+}
+
+else
+{
+$(".inp").prop("checked",false);
+
+
+}
+abc();
+});
+
+$(".inp").click(function(){
+if($(".inp").length==$(".inp:checked").length){
+$(".selectall").prop("checked",true);
+}
+else
+{
+$(".selectall").prop("checked",false);
+}
+
+abc();
+});
+
+
+});
+
+</script>
+</html>
+
+
+
+ 
+
+
+
+
+
+
+
+
